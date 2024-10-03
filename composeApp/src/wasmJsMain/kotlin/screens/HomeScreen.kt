@@ -84,16 +84,12 @@ fun HomeScreen(modifier : Modifier = Modifier,
                         Text("An experienced Android Application Developer with 4 years of experience developing and maintaining mobile applications with Kotlin, Java, XMLs and Jetpack Compose. Providing seamless user experience by incorporating industry best practices for mobile application like MVVM architecture and various Jetpack features.", style = textStyle.copy(
                             fontWeight = FontWeight.ExtraLight,
                             color = Color.LightGray
-                        ), modifier = modifier.clickable {
-                            CoroutineScope(Dispatchers.Main).launch {
-                             scaffoldState.snackbarHostState.showSnackbar(message = "Your info description", duration = SnackbarDuration.Long, actionLabel = "Click")
-                            }
-                        })
+                        ))
                         Spacer(modifier = modifier.height(10.dp))
                         Row {
                             mainButton(url = "https://www.linkedin.com/in/mohitkishorvarma/", buttonContent = "Contact me")
                             Spacer(modifier = modifier.width(10.dp))
-                            mainButton(url = "https://drive.google.com/file/d/1pGuttWDPmK7Np89qTROkTRTAgVwJOBRK/view?usp=drive_link", buttonContent = "Download CV")
+                            mainButton(url = "https://drive.google.com/file/d/1PZTsMtsrrY8lONyX0lFZeNjvtzmxISQz/view?usp=sharing", buttonContent = "Download CV")
                         }
                     }
                     scalableImage(modifier = Modifier)

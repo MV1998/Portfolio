@@ -1,6 +1,9 @@
 package custom_composable
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.TabRowDefaults.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,73 +18,157 @@ import textStyle
 
 @Composable
 fun education(modifier: Modifier) {
-    val headerStyle = TextStyle(fontWeight = FontWeight.Bold,
-        color = Color.White
+
+    val educations = listOf(
+        Education(
+            year = "2016 - 2020",
+            degree = "Bachelor of Engineering (CSE)",
+            university = "Rajiv Gandhi Proudyogiki Vishwavidyalaya",
+            address = "Madhya Pradesh, Bhopal",
+            note = "I am becoming a good software engineering with best practice and domain knowledge. There is lots of learning" +
+                    " in this field and continuously acquiring knowledge."
+        ), Education(
+            year = "2015 - 2016",
+            degree = "Higher Secondary School",
+            university = "Board Of Secondary Education",
+            address = "Madhya Pradesh, Bhopal",
+            note = "Physics, Chemistry and Mathematics were my favorite subjects. I have secured 88.8% in the Board Examinations."
+        ), Education(
+            year = "2012 - 2014",
+            degree = "High School",
+            university = "Board Of Secondary Education",
+            address = "Madhya Pradesh, Bhopal",
+            note = "High School was my turning point to give attention in the study. Practiced a lot of Math and English questions."
+        )
     )
-    val subHeading = TextStyle(fontWeight = FontWeight.Normal,
-        color = Color(0xff5EE4C6), fontSize = 12.sp
-    )
-    Column (modifier = modifier
-        .wrapContentHeight(),
+
+    Column(
+        modifier = modifier
+            .wrapContentHeight(),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.Start) {
-        Text("My Education ", style = textStyle.plus(
-            TextStyle(color = Color(0xff5EE4C6),
+        horizontalAlignment = Alignment.Start
+    ) {
+        Text(
+            "My Education ", style = textStyle.plus(
+                TextStyle(
+                    color = Color(0xff5EE4C6),
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 28.sp
+                )
+            )
+        )
+
+        buildEducation(educations)
+    }
+}
+
+@Composable
+fun buildEducation(educations: List<Education>, modifier: Modifier = Modifier) {
+    if (window.innerWidth > 1000) {
+        Row(
+            modifier = modifier.fillMaxWidth()
+                .padding(top = 20.dp),
+            horizontalArrangement = Arrangement.Start
+        ) {
+            repeat(educations.size) {
+                EducationSection(
+                    education = educations[it],
+                    modifier = modifier
+                        .weight(.3f)
+                        .wrapContentHeight()
+                )
+            }
+        }
+    } else {
+        Column(modifier = modifier.fillMaxWidth().padding(top = 20.dp)) {
+            repeat(educations.size) {
+                EducationSection(
+                    education = educations[it],
+                    modifier = modifier
+                        .padding(top = 20.dp)
+                        .wrapContentHeight()
+                        .wrapContentWidth()
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun EducationSection(
+    education: Education = Education(
+        year = "2008 - 2010",
+        degree = "Master of Computer Science",
+        university = "UNIVERSITY OF NORTH CAROLINA",
+        address = "North Carolina, USA",
+        note = "Duis aute irure dolor in reprehenderit in vol patate velit esse cillum dolore eu fugiat nulla pari. Excepteur sint occana inna tecat cupidatat non proident."
+    ),
+    textColor: Color = Color.White,
+    modifier: Modifier = Modifier
+) {
+
+    Column(modifier = modifier) {
+        Text(
+            education.year, style = TextStyle(
+                color = textColor,
                 fontWeight = FontWeight.ExtraBold,
-                fontSize = 28.sp
+                fontSize = 18.sp
             )
-        ))
-        Spacer(modifier = modifier.height(10.dp))
-        header("Thakur Shivkumar Singh Memorial Engineering College",
-            "Zhiri, Burhanpur (M.P.)",
-            modifier,headerStyle
         )
-        subHeading("Bachelor Of Engineering in Computer Science",
-            "Sep 2016 – July 2020", modifier, subHeading
-        )
-        Spacer(modifier = modifier.height(10.dp))
-        header("Shree Ganesh Higher Secondary School",
-            "Burhanpur, Madhya Pradesh",
-            modifier,headerStyle
+        Text(
+            education.degree,
+            modifier = Modifier.padding(top = 10.dp),
+            style = TextStyle(
+                color = textColor
             )
-        subHeading("Secondary Higher Education ",
-            "Aug 2015 – Aug 2016", modifier, subHeading
+        )
+        Row(
+            modifier = Modifier.padding(top = 20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Spacer(
+                modifier = Modifier
+                    .height(10.dp)
+                    .width(10.dp)
+                    .background(color = textColor, shape = CircleShape)
+            )
+            Divider(
+                thickness = 1.dp, color = textColor,
+                modifier = Modifier.padding(start = 5.dp, end = 5.dp)
+            )
+        }
+        Text(
+            education.university,
+            modifier = Modifier.padding(top = 20.dp),
+            style = TextStyle(
+                color = textColor,
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp
+            )
+        )
+        Text(
+            education.address,
+            modifier = Modifier.padding(top = 5.dp),
+            style = TextStyle(
+                color = textColor
+            )
+        )
+        Text(
+            education.note,
+            modifier = Modifier.padding(top = 15.dp),
+            style = TextStyle(
+                color = Color.LightGray,
+                fontWeight = FontWeight.Normal,
+                fontSize = 14.sp
+            )
         )
     }
 }
 
-@Composable
-fun header(universityName : String, place: String, modifier: Modifier, headerStyle : TextStyle) {
-    if (window.innerWidth > 1000) {
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = modifier.fillMaxWidth().padding(end = 10.dp)) {
-            Text(universityName, style = headerStyle)
-            Text(place, style = headerStyle)
-        }
-    }else {
-        Column (modifier = modifier.fillMaxWidth().padding(end = 10.dp)) {
-            Text(universityName, style = headerStyle)
-            Text(place, style = headerStyle)
-        }
-    }
-}
-
-@Composable
-fun subHeading(degreeName : String, period: String, modifier: Modifier, subHeadingStyle : TextStyle) {
-    if (window.innerWidth > 1000) {
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = modifier.fillMaxWidth().padding(end = 10.dp)) {
-            Text(degreeName, style = subHeadingStyle)
-            Text(period
-                , style = subHeadingStyle)
-        }
-    }else {
-        Column (modifier = modifier.fillMaxWidth().padding(end = 10.dp)) {
-            Text(degreeName, style = subHeadingStyle)
-            Text(period
-                , style = subHeadingStyle)
-        }
-    }
-}
+data class Education(
+    val year: String,
+    val degree: String,
+    val university: String,
+    val address: String,
+    val note: String
+)

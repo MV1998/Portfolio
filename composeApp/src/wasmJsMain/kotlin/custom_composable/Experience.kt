@@ -28,7 +28,10 @@ fun experience(modifier: Modifier = Modifier) {
             fontSize = 28.sp
         )
         ))
+
         Spacer(modifier = Modifier.height(10.dp))
+        globalLogic(modifier)
+        Spacer(modifier = Modifier.height(30.dp))
         mobileProgrammingLLC(modifier)
         Spacer(modifier = Modifier.height(30.dp))
         virimExperience(modifier)
@@ -67,6 +70,25 @@ fun virimExperience(modifier: Modifier) {
 }
 
 @Composable
+fun globalLogic(modifier: Modifier) {
+    Column {
+        Row(modifier= modifier.fillMaxWidth().
+        padding(end = 10.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text("GlobalLogic (Pune)", color = Color.White,
+                fontSize = 24.sp)
+            if (window.innerWidth > 1000) {
+                Text("Sep 2024 - Present", color = Color.White, fontSize = 14.sp)
+            }
+        }
+        if (window.innerWidth < 1000) {
+            Text("Sep 2024 - Present", color = Color.White, fontSize = 14.sp)
+        }
+        Text("Senior Software Engineer", color = Color.White, fontSize = 18.sp,
+            modifier = modifier.padding(end = 20.dp))
+    }
+}
+
+@Composable
 fun mobileProgrammingLLC(modifier: Modifier) {
     Column {
         Row(modifier= modifier.fillMaxWidth().
@@ -74,14 +96,16 @@ fun mobileProgrammingLLC(modifier: Modifier) {
             Text("Mobile Programming LLC (Pune)", color = Color.White,
                 fontSize = 24.sp)
             if (window.innerWidth > 1000) {
-                Text("May 2024 - Present", color = Color.White, fontSize = 14.sp)
+                Text("May 2024 - Sep 2024", color = Color.White, fontSize = 14.sp)
             }
         }
         if (window.innerWidth < 1000) {
-            Text("May 2024 - Present", color = Color.White, fontSize = 14.sp)
+            Text("May 2024 - Sep 2024", color = Color.White, fontSize = 14.sp)
         }
         Text("Android Application Developer", color = Color.White, fontSize = 18.sp,
             modifier = modifier.padding(end = 20.dp))
+        Spacer(modifier = modifier.height(10.dp))
+        resumeItem("Implemented Dark and Light theme in app.")
     }
 }
 
