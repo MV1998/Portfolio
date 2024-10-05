@@ -3,6 +3,13 @@ import org.w3c.dom.DOMStringMap
 class ConceptSkill(val skillName : String,
     val link : String)
 
+data class Skill(
+    val skillName: String,
+    val id: Int,
+    val isActive: Boolean
+)
+
+
 class Project(
     val projectName : String,
     val aboutProject: String,
@@ -99,5 +106,37 @@ object InMemoryDataBase {
                 "- Used biometric authentication and pin setup for security",
                 "- Used http networking library and provider state management solution")
         )
+    )
+
+
+    val skillList = listOf(
+        Skill("XML Layouts", 1, true),
+        Skill("ViewModel", 3, true),
+        Skill("LiveData", 4, true),
+        Skill("View Binding", 5, true),
+        Skill("Data Binding", 6, true),
+        Skill("Room DB", 7, true),
+        Skill("WorkManager", 8, true),
+        Skill("Foreground Services", 9, true),
+        Skill("Background Services", 10, true),
+        Skill("MVVM Architecture", 11, true),
+        Skill("Jetpack Compose", 12, true),
+        Skill("Coroutines", 13, true),
+        Skill("Flow", 14, true),
+        Skill("Dependency Injection Dagger Hilt", 15, true),
+        Skill("Retrofit", 16, true),
+        Skill("OkHttp", 17, true),
+        Skill("Activity", 19, true),
+        Skill("Intent", 20, true),
+        Skill("Broadcast Receiver", 21, true),
+        Skill("Content Provider", 22, true),
+        Skill("Google Maps", 24, true),
+        Skill("Third-Party Libraries Integration", 25, true),
+        Skill("Admob", 26, true),
+        Skill("RecyclerView", 27, true),
+        Skill("Unit Testing", 28, true),
+        Skill("UI Testing", 29, true),
+        Skill("Performance Optimization", 30, true),
+        Skill("Play Store Submission", 31, true)
     )
 }
