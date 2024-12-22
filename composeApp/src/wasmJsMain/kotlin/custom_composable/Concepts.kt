@@ -50,7 +50,7 @@ fun conceptCard(modifier: Modifier, concepts : List<ConceptSkill>) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                "Concepts that I know in Android and Kotlin ", style = textStyle.plus(
+                "My hand written concepts that I studied", style = textStyle.plus(
                     TextStyle(
                         color = Color(0xff5EE4C6),
                         fontWeight = FontWeight.ExtraBold,

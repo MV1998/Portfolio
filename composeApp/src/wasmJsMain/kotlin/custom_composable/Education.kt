@@ -25,8 +25,9 @@ fun education(modifier: Modifier) {
             degree = "Bachelor of Engineering (CSE)",
             university = "Rajiv Gandhi Proudyogiki Vishwavidyalaya",
             address = "Madhya Pradesh, Bhopal",
-            note = "I am becoming a good software engineering with best practice and domain knowledge. There is lots of learning" +
-                    " in this field and continuously acquiring knowledge."
+            note = "In the college, I got introduced with new environment of study and subjects and new friends. This environment " +
+                    "gave me a change to become a good software engineer with best practice and domain knowledge. There is " +
+                    "lots of learning in this field and I am continuously acquiring knowledge."
         ), Education(
             year = "2015 - 2016",
             degree = "Higher Secondary School",
@@ -38,7 +39,8 @@ fun education(modifier: Modifier) {
             degree = "High School",
             university = "Board Of Secondary Education",
             address = "Madhya Pradesh, Bhopal",
-            note = "High School was my turning point to give attention in the study. Practiced a lot of Math and English questions."
+            note = "High School was my turning point to give attention in the study. Hard work in Mathematics and " +
+                    "English helped me to gain the strength of study."
         )
     )
 
@@ -155,7 +157,7 @@ fun EducationSection(
         )
         Text(
             education.note,
-            modifier = Modifier.padding(top = 15.dp),
+            modifier = Modifier.padding(top = 15.dp, end = 5.dp),
             style = TextStyle(
                 color = Color.LightGray,
                 fontWeight = FontWeight.Normal,

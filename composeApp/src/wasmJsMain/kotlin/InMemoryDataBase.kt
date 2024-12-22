@@ -48,6 +48,9 @@ object InMemoryDataBase {
         ConceptSkill("Database/Storage in Android","https://docs.google.com/document/d/1EwMc9XKDtJ86CfhDs6zMK6vOnNeYT8Y657PMKBLYkTc/edit?usp=sharing"),
         ConceptSkill("Important Dependencies","https://docs.google.com/document/d/1oDlDKGaskqZ8yhcNKX5MOTXArGUb05wfhw-cz1VUnF4/edit?usp=sharing"),
         ConceptSkill("Permission Handling","https://docs.google.com/document/d/104IYbG9Ge_rBKDylslNsC5b1wcb-dLkJKKQLtEUbDPc/edit?usp=sharing"),
+        ConceptSkill("Notification","https://docs.google.com/document/d/1wiWHZHj8i7tWQRZu_LhE0tv4wjhtCsqbqdL2YNIqg-Q/edit?usp=sharing"),
+        ConceptSkill("Location & Geofencing","https://docs.google.com/document/d/1wdvbyvJsmKVXNj2Gane_sF6P4nwPEzNCuKGg4irEhiA/edit?usp=sharing"),
+        ConceptSkill("System Design","https://docs.google.com/document/d/11H0hPYghtVLTNMf7Pyiq0mV475cz_chgQmsfNZXMxTQ/edit?usp=sharing"),
     )
 
     val projectList = listOf(

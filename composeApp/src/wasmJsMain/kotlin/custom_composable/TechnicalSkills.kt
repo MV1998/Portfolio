@@ -1,6 +1,7 @@
 package custom_composable
 
 import InMemoryDataBase
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -125,9 +126,12 @@ fun technicalSkill(modifier: Modifier) {
 
         Column {
             Text("Android Skills : ", style = headerStyle, modifier = modifier.padding(bottom = 10.dp))
-            FlowRow(horizontalArrangement = Arrangement.SpaceBetween, modifier = modifier.padding(top = 5.dp)) {
+            FlowRow(modifier = modifier.padding(top = 5.dp)) {
                 repeat(InMemoryDataBase.skillList.size) {
-                    Card(modifier = modifier.padding(5.dp)) {
+                    Card(modifier = modifier.padding(5.dp).
+                    clickable {
+
+                    }) {
                         Text(
                             InMemoryDataBase.skillList[it].skillName,
                             style = TextStyle(color = Color.Black, fontWeight = FontWeight.Bold),
